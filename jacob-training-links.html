@@ -1,82 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Binder QR Codes</title>
-    <style>
-        body { font-family: sans-serif; text-align: center; padding: 20px; }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .qr-card {
-            border: 2px dashed #ccc;
-            padding: 20px;
-            border-radius: 10px;
-        }
-        .qr-card img { width: 150px; height: 150px; }
-        .label { margin-top: 10px; font-weight: bold; font-size: 14pt; }
-        .master { margin-bottom: 50px; padding: 30px; border: 3px solid #000; }
-        @media print {
-            .no-print { display: none; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jacob's Training Links</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;background:#111;color:#eee;padding:0 0 80px 0}
+header{background:linear-gradient(135deg,#1a472a,#2d6a4f);padding:20px;text-align:center;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,0.5)}
+header h1{font-size:1.4rem;letter-spacing:1px}
+header p{font-size:0.85rem;color:#a8d5ba;margin-top:4px}
+.section{margin:12px;border-radius:12px;overflow:hidden;background:#1a1a1a;border:1px solid #333}
+.section-header{display:flex;align-items:center;padding:14px 16px;cursor:pointer;gap:10px;user-select:none}
+.section-header:active{background:#252525}
+.emoji{font-size:1.5rem;flex-shrink:0}
+.section-title{font-weight:700;font-size:1rem;flex-grow:1}
+.chevron{font-size:1.2rem;color:#666;transition:transform 0.2s}
+.section.open .chevron{transform:rotate(90deg)}
+.links{display:none;padding:0 12px 12px 12px}
+.section.open .links{display:block}
+a.link{display:block;padding:12px 14px;margin:4px 0;background:#222;border-radius:8px;color:#4dabf7;text-decoration:none;font-size:0.95rem;border:1px solid #333;min-height:44px;line-height:1.3}
+a.link:active{background:#333}
+.link-label{color:#999;font-size:0.8rem;display:block;margin-bottom:2px}
+.back-top{position:fixed;bottom:20px;right:20px;background:#2d6a4f;color:white;border:none;border-radius:50%;width:44px;height:44px;font-size:1.2rem;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.4);z-index:100}
+</style>
 </head>
 <body>
 
-    <div class="master">
-        <h2>MASTER QR CODE</h2>
-        <div id="master-qr"></div>
-        <p class="label">SCAN FOR ALL TRAINING LINKS</p>
-    </div>
+<header>
+<h1>JACOB'S TRAINING LINKS</h1>
+<p>Tap a section, then tap a link to watch</p>
+</header>
 
-    <div class="grid">
-        <div class="qr-card">
-            <div id="qr-prehab"></div>
-            <p class="label">PRE-HAB</p>
-        </div>
-        <div class="qr-card">
-            <div id="qr-moves"></div>
-            <p class="label">12 MOVES LIBRARY</p>
-        </div>
-        <div class="qr-card">
-            <div id="qr-scanning"></div>
-            <p class="label">SCANNING / HALF-TURN</p>
-        </div>
-        <div class="qr-card">
-            <div id="qr-speed"></div>
-            <p class="label">SPEED & AGILITY</p>
-        </div>
-        <div class="qr-card">
-            <div id="qr-juggling"></div>
-            <p class="label">JUGGLING</p>
-        </div>
-        <div class="qr-card">
-            <div id="qr-recovery"></div>
-            <p class="label">RECOVERY / FOAM ROLL</p>
-        </div>
-    </div>
+<div class="section open" id="prehab">
+<div class="section-header" onclick="this.parentElement.classList.toggle('open')">
+<span class="emoji">&#x1F9B5;</span>
+<span class="section-title">PRE-HAB &mdash; The Daily 6</span>
+<span class="chevron">&#x25B6;</span>
+</div>
+<div class="links">
+<a class="link" href="https://www.sports-injury-physio.com/post/the-clamshells-exercise-benefits-variation-and-progressions" target="_blank"><span class="link-label">Clamshells</span>Form &amp; Progressions</a>
+<a class="link" href="https://catalystathletics.com/exercise/766/Clamshell/" target="_blank"><span class="link-label">Clamshells</span>Video Demo with Band</a>
+<a class="link" href="https://library.theprehabguys.com/vimeo-video/side-lying-hip-abduction/" target="_blank"><span class="link-label">Side-Lying Hip Abduction</span>Video Demo</a>
+<a class="link" href="https://library.theprehabguys.com/vimeo-video/side-lying-hip-abduction-band-core-activation/" target="_blank"><span class="link-label">Hip Abduction</span>Band Progression</a>
+<a class="link" href="https://www.muscleandstrength.com/exercises/lateral-band-walk" target="_blank"><span class="link-label">Lateral Band Walks</span>Video Guide</a>
+<a class="link" href="https://library.theprehabguys.com/vimeo-video/band-placement-for-sidesteps/" target="_blank"><span class="link-label">Band Walks</span>Where to Put the Band</a>
+<a class="link" href="https://www.muscleandstrength.com/exercises/single-leg-glute-bridge" target="_blank"><span class="link-label">Single-Leg Glute Bridge</span>Video Guide</a>
+<a class="link" href="https://www.sports-injury-physio.com/post/glute-bridge-exercises-4-variations-demonstrated" target="_blank"><span class="link-label">Glute Bridge</span>All 4 Variations</a>
+<a class="link" href="https://library.theprehabguys.com/vimeo-video/monster-walk/" target="_blank"><span class="link-label">Monster Walks</span>Video Demo</a>
+<a class="link" href="https://www.hingehealth.com/resources/articles/monster-walk/" target="_blank"><span class="link-label">Monster Walks</span>Form Guide</a>
+<a class="link" href="https://fitbod.me/exercises/standing-hip-circle" target="_blank"><span class="link-label">Standing Hip Circles</span>Guide</a>
+<a class="link" href="https://library.theprehabguys.com/vimeo-video/standing-pelvic-circles/" target="_blank"><span class="link-label">Hip Circles</span>Pelvic Circles Demo</a>
+</div>
+</div>
 
-    <script>
-        // REPLACE THIS URL with your hosted GitHub/Google Sites link
-        const BASE_URL = "https://yoursite.com/jacob-training-links.html";
+<div class="section" id="moves">
+<div class="section-header" onclick="this.parentElement.classList.toggle('open')">
+<span class="emoji">&#x1F3AF;</span>
+<span class="section-title">THE 12 MOVES LIBRARY</span>
+<span class="chevron">&#x25B6;</span>
+</div>
+<div class="links">
+<a class="link" href="https://www.risefcsoccer.com/youth-soccer-footwork-drills/" target="_blank"><span class="link-label">1. Sole Roll (Inside)</span>Footwork Drills</a>
+<a class="link" href="https://www.sportsessionplanner.com/s/LRGib/Sole-roll-roll-step-techique.html" target="_blank"><span class="link-label">2. Sole Roll (Forward-Back)</span>Sole Roll Technique</a>
+<a class="link" href="http://www.freeyouthsoccerdrills.com/soccer-moves-2.html" target="_blank"><span class="link-label">3. Drag-Back (Pull-Back)</span>Pull-Back Turn</a>
+<a class="link" href="http://www.onlinesocceracademy.com/soccer-training-videos/dribbling/how-to-do-a-pull-back-v" target="_blank"><span class="link-label">4. L-Pull (Inside)</span>Pull-Back V</a>
+<a class="link" href="https://www.soccercoachweekly.net/drills-and-games/drills/the-drag-push-drill" target="_blank"><span class="link-label">5. L-Pull (Outside)</span>Drag Push Drill</a>
+<a class="link" href="https://www.soccercoachweekly.net/drills-and-games/drills/the-drag-push-skill" target="_blank"><span class="link-label">6. Reverse L-Pull</span>Drag Push Skill</a>
+<a class="link" href="https://www.sportstips.org/blog/Soccer/Tricks/the_puskas_v_drag_classic_deceptive_dribbling" target="_blank"><span class="link-label">7. V-Drag (Inside)</span>Puskas V-Drag</a>
+<a class="link" href="https://www.soccercoachweekly.net/drills-and-games/drills/vital-skills--the-drag-scissors" target="_blank"><span class="link-label">8. V-Drag (Outside)</span>Drag Scissors</a>
+<a class="link" href="https://www.soccercoachweekly.net/drills-and-games/drills/soccer-spin-skills-drill" target="_blank"><span class="link-label">9. Drag-and-Turn (Inside)</span>Spin Skills Drill</a>
+<a class="link" href="https://flicktec.io/blog/ball-mastery-exercises-youth-soccer-players" target="_blank"><span class="link-label">10. Drag-and-Turn (Outside)</span>Directional Turns</a>
+<a class="link" href="https://www.onlinesocceracademy.com/soccer-training-videos/dribbling/how-to-do-a-step-over-in-soccer" target="_blank"><span class="link-label">11. Stepover + Inside Cut</span>How to Step Over</a>
+<a class="link" href="https://www.onlinesocceracademy.com/soccer-training-videos/dribbling/la-croqueta-iniestas-signature-move/" target="_blank"><span class="link-label">12. Double Touch (La Croqueta)</span>Iniesta's Signature Move</a>
+<a class="link" href="https://www.onlinesocceracademy.com/soccer-training-videos/speed-of-play/how-to-dribble-with-your-head-up" target="_blank"><span class="link-label">Bonus</span>Dribbling with Head Up</a>
+<a class="link" href="https://www.onlinesocceracademy.com/soccer-training-videos/dribbling" target="_blank"><span class="link-label">Full Library</span>All Dribbling Videos</a>
+</div>
+</div>
 
-        function generateQR(id, suffix) {
-            const url = BASE_URL + suffix;
-            const el = document.getElementById(id);
-            el.innerHTML = `<img src="https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=${encodeURIComponent(url)}" />`;
-        }
+<div class="section" id="ballmastery">
+<div class="section-header" onclick="this.parentElement.classList.toggle('open')">
+<span class="emoji">&#x26BD;</span>
+<span class="section-title">BALL MASTERY &amp; DRILLS</span>
+<span class="chevron">&#x25B6;</span>
+</div>
+<div class="links">
+<a class="link" href="https://www.soccercoachweekly.net/drills-and-games/drills/how-to-coach-the-cruyff-turn" target="_blank"><span class="link-label">Cruyff Turn</span>How to Coach It</a>
+<a class="link" href="https://www.soccercoachingpro.com/cruyff-turn/" target="_blank"><span class="link-label">Cruyff Turn</span>6-Step Guide</a>
+<a class="link" href="https://www.anytime-soccer.com/blog/10-ball-mastery-drills-your-child-can-do-in-10-minutes" target="_blank"><span class="link-label">Ball Mastery</span>10 Drills in 10 Minutes</a>
+<a class="link" href="https://mypersonalfootballcoach.com/individual-soccer-midfielder-drill-5-skill-agility-explosive-movement-combo/" target="_blank"><span class="link-label">Midfielder</span>Skill + Agility Combo</a>
+<a class="link" href="https://footballdna.co.uk/sessions/diamond-dribble-circuit/" target="_blank"><span class="link-label">Diamond Escape</span>Diamond Dribble Circuit</a>
+<a class="link" href="https://soccerxpert.com/drills/details/obstacle-course-dribbling" target="_blank"><span class="link-label">Cone Drills</span>Obstacle Course Dribbling</a>
+</div>
+</div>
 
-        generateQR('master-qr', '');
-        generateQR('qr-prehab', '#prehab');
-        generateQR('qr-moves', '#moves');
-        generateQR('qr-scanning', '#scanning');
-        generateQR('qr-speed', '#speed');
-        generateQR('qr-juggling', '#juggling');
-        generateQR('qr-recovery', '#recovery');
-    </script>
+<div class="section" id="scanning">
+<div class="section-header" onclick="this.parentElement.classList.toggle('open')">
+<span class="emoji">&#x1F440;</span>
+<span class="section-title">SCANNING &amp; HALF-TURN</span>
+<span class="chevron">&#x25B6;</span>
+</div>
+<div class="links">
+<a class="link" href="https://www.sportsessionplanner.com/s/CfsX/U14-Technical-Session---Checking-Your-Shoulder.html" target="_blank"><span class="link-label">Shoulder Check</span>Checking Shoulder &amp; Receiving</a>
+<a class="link" href="https://wcctrainingcenter.com/triangle-shoulder-check-drill/" target="_blank"><span class="link-label">Scanning</span>Triangle Shoulder Check Drill</a>
+<a class="link" href="https://www.sportsessionplanner.com/s/SIupb/06G-Receiving-on-the-half-turn-(Receiving).html" target="_blank"><span class="link-label">Half-Turn</span>Receiving on the Half-Turn</a>
+<a class="link" href="https://www.sportsessionplanner.com/s/B81lb/Midfield-Half-Turn.html" target="_blank"><span class="link-label">Half-Turn</span>Midfield Half-Turn Drill</a>
+<a class="link" href="https://www.sportsessionplanner.com/s/aR0X/Scanning-session.html" target="_blank"><span class="link-label">Scanning</span>Full Scanning Session</a>
+<a class="link" href="https://www.sportsessionplanner.com/s/88Qgi/Receiving-to-turn-in-tight-spaces..html" target="_blank"><span class="link-label">Turning</span>Receiving to Turn (Tight Spaces)</a>
+<a class="link" href="https://www.sportsessionplanner.com/s/Mg1W/Technical---Passing-and-Receiving-(Teaching-the-half-turn).html" target="_blank"><span class="link-label">Half-Turn</span>Teaching the Half-Turn</a>
+<a class="link" href="https://www.soccercoachweekly.net/drills-and-games/drills/escape" target="_blank"><span class="link-label">Escape</span>Escape Drill</a>
+<a class="link" href="https://www.soccercoachweekly.net/drills-and-games/drills/soccer-drill-to-get-players-finding-space" target="_blank"><span class="link-label">Space</span>Finding Space Drill</a>
+</div>
+</div>
+
+<div class="section" id="speed">
+<div class="section-header" onclick="this.parentElement.classList.toggle('open')">
+<span class="emoji">&#x1F3C3;</span>
+<span class="section-title">SPEED &amp; AGILITY</span>
+<span class="chevron">&#x25B6;</span>
+</div>
+<div class="links">
+<a class="link" href="https://library.theprehabguys.com/vimeo-video/march-wall-supported/" target="_blank"><span class="link-label">Wall March</span>Sprint Mechanics Demo</a>
+<a class="link" href="https://ericcressey.com/wall-march-variations-for-the-win" target="_blank"><span class="link-label">Wall March</span>Variations</a>
+<a class="link" href="https://robertsontrainingsystems.com/blog/dissecting-the-wall-drill/" target="_blank"><span class="link-label">Wall Drill</span>Full Breakdown</a>
+<a class="link" href="https://kbandstraining.com/best-youth-speed-training-drill-wall-sprints/" target="_blank"><span class="link-label">Wall Sprints</span>Youth Drill</a>
+<a class="link" href="https://fitloop.app/exercises/linear-3-part-start-technique" target="_blank"><span class="link-label">3-Point Start</span>Form Guide</a>
+<a class="link" href="https://blog.overtimeathletes.com/wall-sprint-drill/" target="_blank"><span class="link-label">Acceleration</span>Sprint Drills</a>
+<a class="link" href="https://sportstrength.com/articles/the-t-drill-your-guide-to-mastering-the-t-drill/" target="_blank"><span class="link-label">T-Drill</span>Guide &amp; Benefits</a>
+<a class="link" href="https://youthsoccersports.com/day-3-soccer-agility-drills/" target="_blank"><span class="link-label">Agility</span>9 Soccer Agility Drills</a>
+<a class="link" href="https://library.theprehabguys.com/vimeo-video/ladder-ickey-shuffle-2/" target="_blank"><span class="link-label">Ladder</span>Ickey Shuffle Demo</a>
+<a class="link" href="http://www.kingsportstraining.com/blogs/training-blog/7694405-13-agility-ladder-drills-for-faster-footwork" target="_blank"><span class="link-label">Ladder</span>13 Drills with Videos</a>
+<a class="link" href="https://xbotgo.com/blogs/knowledge/soccer-ladder-drills" target="_blank"><span class="link-label">Ladder</span>15 Soccer Ladder Drills</a>
+<a class="link" href="https://www.soccertots.net/fun-agility-ladder-drills-for-youth-soccer/" target="_blank"><span class="link-label">Ladder</span>Fun Youth Drills</a>
+</div>
+</div>
+
+<div class="section" id="juggling">
+<div class="section-header" onclick="this.parentElement.classList.toggle('open')">
+<span class="emoji">&#x1F938;</span>
+<span class="section-title">JUGGLING</span>
+<span class="chevron">&#x25B6;</span>
+</div>
+<div class="links">
+<a class="link" href="https://www.flicktec.io/blog/soccer-juggling-guide-teach-child-to-juggle" target="_blank"><span class="link-label">Beginner</span>Juggling Guide for Kids</a>
+<a class="link" href="https://www.soccercoachweekly.net/drills-and-games/drills/soccer-juggling-drills-for-better-ball-control" target="_blank"><span class="link-label">Ball Control</span>Juggling Drills</a>
+<a class="link" href="https://www.onlinesocceracademy.com/soccer-training-videos/juggling/juggling-a-soccer-ball-6-key-points" target="_blank"><span class="link-label">Technique</span>6 Key Points</a>
+<a class="link" href="https://www.risefcsoccer.com/youth-soccer-juggling-drills/" target="_blank"><span class="link-label">Youth</span>Juggling Drills</a>
+</div>
+</div>
+
+<div class="section" id="core">
+<div class="section-header" onclick="this.parentElement.classList.toggle('open')">
+<span class="emoji">&#x1F4AA;</span>
+<span class="section-title">CORE &amp; BODYWEIGHT</span>
+<span class="chevron">&#x25B6;</span>
+</div>
+<div class="links">
+<a class="link" href="https://www.soccertots.net/core-stability-exercises-for-young-players/" target="_blank"><span class="link-label">Core</span>Stability for Young Players</a>
+<a class="link" href="https://sportsconnect.com/2021/03/23/the-youth-athletes-bodyweight-workout/" target="_blank"><span class="link-label">Bodyweight</span>Youth Athlete Workout</a>
+<a class="link" href="https://www.fifatrainingcentre.com/en/practice/training-perspectives/athleticism-for-young-players/athleticism-for-young-players-core-strength.php" target="_blank"><span class="link-label">FIFA</span>Core Strength Guide</a>
+<a class="link" href="https://sportsconnect.com/2021/09/17/7-safe-and-effective-bodyweight-exercises-for-pre-teen-athletes/" target="_blank"><span class="link-label">Pre-Teens</span>7 Bodyweight Exercises</a>
+</div>
+</div>
+
+<div class="section" id="defending">
+<div class="section-header" onclick="this.parentElement.classList.toggle('open')">
+<span class="emoji">&#x1F6E1;</span>
+<span class="section-title">1v1 DEFENDING (Club Break)</span>
+<span class="chevron">&#x25B6;</span>
+</div>
+<div class="links">
+<a class="link" href="http://www.onlinesocceracademy.com/soccer-training-videos/defending/1v1-defending-learn-basic-advanced-techniques" target="_blank"><span class="link-label">1v1 Defending</span>Basic &amp; Advanced Techniques</a>
+<a class="link" href="http://www.playsportstv.com/soccer/soccer-defense_jockeying-an-attacker" target="_blank"><span class="link-label">Jockeying</span>MLS Pro Tips</a>
+<a class="link" href="https://www.soccercoachweekly.net/drills-and-games/drills/1v1-defending-technique" target="_blank"><span class="link-label">Technique</span>Arc, Jockey, Force</a>
+<a class="link" href="https://www.sportsessionplanner.com/s/3Txab/Pressure-Jockey-Delay.html" target="_blank"><span class="link-label">Session Plan</span>Pressure / Jockey / Delay</a>
+<a class="link" href="https://www.sportsessionplanner.com/s/caFDi/SSE---Defending-the-Ball---Jockeying-Session.html" target="_blank"><span class="link-label">Full Session</span>Jockeying Academy Plan</a>
+<a class="link" href="https://soccerxpert.com/drills/details/1v1-defending-the-dribble" target="_blank"><span class="link-label">Grid Drill</span>1v1 Defending the Dribble</a>
+<a class="link" href="https://www.soccerxpert.com/drills/details/1v1-battle-attacking-and-reaction-drill" target="_blank"><span class="link-label">Battle</span>1v1 Attack &amp; Reaction</a>
+</div>
+</div>
+
+<div class="section" id="attacking">
+<div class="section-header" onclick="this.parentElement.classList.toggle('open')">
+<span class="emoji">&#x2694;</span>
+<span class="section-title">1v1 ATTACKING (Club Break)</span>
+<span class="chevron">&#x25B6;</span>
+</div>
+<div class="links">
+<a class="link" href="https://www.flicktec.io/blog/how-to-dribble-past-defenders-1v1-moves-youth" target="_blank"><span class="link-label">Youth Moves</span>How to Dribble Past Defenders</a>
+<a class="link" href="https://soccerxpert.com/drills/details/1v1-attacking-and-reaction" target="_blank"><span class="link-label">Reaction</span>1v1 Attacking &amp; Reaction</a>
+<a class="link" href="https://playerdevelopmentproject.com/beating-defenders-a-guide-to-coaching-1v1-attacking-play/" target="_blank"><span class="link-label">Guide</span>Beating Defenders</a>
+<a class="link" href="https://www.sportsessionplanner.com/s/SsGJh/1v1-Attacking.html" target="_blank"><span class="link-label">Session Plan</span>1v1 Attacking</a>
+<a class="link" href="https://soccerxpert.com/drills/details/1v1-escape-the-corner" target="_blank"><span class="link-label">Escape</span>1v1 Corner Escape</a>
+</div>
+</div>
+
+<div class="section" id="passing">
+<div class="section-header" onclick="this.parentElement.classList.toggle('open')">
+<span class="emoji">&#x1F3AF;</span>
+<span class="section-title">PASSING ACCURACY (Club Break)</span>
+<span class="chevron">&#x25B6;</span>
+</div>
+<div class="links">
+<a class="link" href="https://www.hackksoccer.com/blogs/soccer-training-tips/soccer-rebounder-drills-inspired-by-world-cup-players" target="_blank"><span class="link-label">Rebounder</span>World Cup Player Drills</a>
+<a class="link" href="https://www.hackksoccer.com/blogs/soccer-training-tips/how-to-train-soccer-alone-at-home-7-drills-using-a-rebounder" target="_blank"><span class="link-label">Solo</span>7 Rebounder Drills</a>
+<a class="link" href="https://mypersonalfootballcoach.com/individual-soccer-passing-drill-wonderwall-skill-combo-part-2/" target="_blank"><span class="link-label">Wall Work</span>Passing Skill Combo</a>
+<a class="link" href="https://fcbarcelona.us/soccer-passing-drills-accuracy-control/" target="_blank"><span class="link-label">Accuracy</span>FC Barcelona Passing Drills</a>
+<a class="link" href="https://www.soccerdrive.com/soccer-drills/first-touch-skills-series" target="_blank"><span class="link-label">First Touch</span>Skills Series</a>
+</div>
+</div>
+
+<div class="section" id="recovery">
+<div class="section-header" onclick="this.parentElement.classList.toggle('open')">
+<span class="emoji">&#x1F9D8;</span>
+<span class="section-title">FOAM ROLLING &amp; RECOVERY</span>
+<span class="chevron">&#x25B6;</span>
+</div>
+<div class="links">
+<a class="link" href="https://www.sports-injury-physio.com/post/foam-rolling-it-band-dos-and-don-ts" target="_blank"><span class="link-label">IT Band</span>Dos and Don'ts</a>
+<a class="link" href="https://www.zing.coach/exercises/it-band-foam-roll" target="_blank"><span class="link-label">IT Band</span>Foam Roll Demo</a>
+<a class="link" href="https://www.sports-injury-physio.com/post/foam-rolling-for-quad-or-knee-pain" target="_blank"><span class="link-label">Quads</span>Foam Rolling for Knee Pain</a>
+<a class="link" href="https://ttrening.com/learn/articles/foam-rolling-guide" target="_blank"><span class="link-label">Full Guide</span>All Muscle Groups</a>
+</div>
+</div>
+
+<div class="section" id="prostudy">
+<div class="section-header" onclick="this.parentElement.classList.toggle('open')">
+<span class="emoji">&#x1F3AC;</span>
+<span class="section-title">PRO PLAYER STUDY</span>
+<span class="chevron">&#x25B6;</span>
+</div>
+<div class="links">
+<a class="link" href="https://www.youtube.com/results?search_query=Luka+Modric+every+touch" target="_blank"><span class="link-label">Modric</span>Every Touch Compilation</a>
+<a class="link" href="https://www.youtube.com/results?search_query=Pedri+receiving+under+pressure+compilation" target="_blank"><span class="link-label">Pedri</span>Receiving Under Pressure</a>
+<a class="link" href="https://www.youtube.com/results?search_query=Bernardo+Silva+ball+retention+escape" target="_blank"><span class="link-label">Bernardo Silva</span>Ball Retention &amp; Escape</a>
+<a class="link" href="https://www.youtube.com/results?search_query=Xavi+scanning+decision+making" target="_blank"><span class="link-label">Xavi</span>Scanning &amp; Decision Making</a>
+<a class="link" href="https://www.youtube.com/results?search_query=Iniesta+close+control+tight+spaces" target="_blank"><span class="link-label">Iniesta</span>Close Control in Tight Spaces</a>
+<a class="link" href="https://www.youtube.com/results?search_query=Busquets+positioning+interceptions" target="_blank"><span class="link-label">Busquets</span>Positioning &amp; Interceptions</a>
+<a class="link" href="https://www.youtube.com/results?search_query=Rodri+defensive+midfielder+masterclass" target="_blank"><span class="link-label">Rodri</span>CDM Masterclass</a>
+</div>
+</div>
+
+<button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#x2191;</button>
+
 </body>
 </html>
