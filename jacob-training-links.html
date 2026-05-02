@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Binder QR Codes</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 20px; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .qr-card {
+            border: 2px dashed #ccc;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .qr-card img { width: 150px; height: 150px; }
+        .label { margin-top: 10px; font-weight: bold; font-size: 14pt; }
+        .master { margin-bottom: 50px; padding: 30px; border: 3px solid #000; }
+        @media print {
+            .no-print { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="master">
+        <h2>MASTER QR CODE</h2>
+        <div id="master-qr"></div>
+        <p class="label">SCAN FOR ALL TRAINING LINKS</p>
+    </div>
+
+    <div class="grid">
+        <div class="qr-card">
+            <div id="qr-prehab"></div>
+            <p class="label">PRE-HAB</p>
+        </div>
+        <div class="qr-card">
+            <div id="qr-moves"></div>
+            <p class="label">12 MOVES LIBRARY</p>
+        </div>
+        <div class="qr-card">
+            <div id="qr-scanning"></div>
+            <p class="label">SCANNING / HALF-TURN</p>
+        </div>
+        <div class="qr-card">
+            <div id="qr-speed"></div>
+            <p class="label">SPEED & AGILITY</p>
+        </div>
+        <div class="qr-card">
+            <div id="qr-juggling"></div>
+            <p class="label">JUGGLING</p>
+        </div>
+        <div class="qr-card">
+            <div id="qr-recovery"></div>
+            <p class="label">RECOVERY / FOAM ROLL</p>
+        </div>
+    </div>
+
+    <script>
+        // REPLACE THIS URL with your hosted GitHub/Google Sites link
+        const BASE_URL = "https://yoursite.com/jacob-training-links.html";
+
+        function generateQR(id, suffix) {
+            const url = BASE_URL + suffix;
+            const el = document.getElementById(id);
+            el.innerHTML = `<img src="https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=${encodeURIComponent(url)}" />`;
+        }
+
+        generateQR('master-qr', '');
+        generateQR('qr-prehab', '#prehab');
+        generateQR('qr-moves', '#moves');
+        generateQR('qr-scanning', '#scanning');
+        generateQR('qr-speed', '#speed');
+        generateQR('qr-juggling', '#juggling');
+        generateQR('qr-recovery', '#recovery');
+    </script>
+</body>
+</html>
